@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\eh\\ehproject.vol1\\source\\ehproject\\partstype.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\eh\\ehproject.vol1\\intermediate\\build\\win64\\x64\\ehprojecteditor\\development\\engine\\sharedpch.engine.shadowerrors.cpp20.inclorderunreal5_1.h.pch",
+        "Includes": [
+            "c:\\eh\\ehproject.vol1\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ehproject\\definitions.ehproject.h",
+            "c:\\eh\\ehproject.vol1\\source\\ehproject\\partstype.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

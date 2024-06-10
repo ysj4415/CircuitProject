@@ -1,0 +1,21 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\ehproject\\ehproject\\ehproject\\source\\ehproject\\circuitsubsystem.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\ehproject\\ehproject\\ehproject\\intermediate\\build\\win64\\x64\\ehprojecteditor\\development\\engine\\sharedpch.engine.shadowerrors.cpp20.inclorderunreal5_1.h.pch",
+        "Includes": [
+            "c:\\ehproject\\ehproject\\ehproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ehproject\\definitions.ehproject.h",
+            "c:\\ehproject\\ehproject\\ehproject\\source\\ehproject\\circuitsubsystem.h",
+            "c:\\ehproject\\ehproject\\ehproject\\source\\ehproject\\partsbase.h",
+            "c:\\ehproject\\ehproject\\ehproject\\source\\ehproject\\partstype.h",
+            "c:\\ehproject\\ehproject\\ehproject\\intermediate\\build\\win64\\unrealeditor\\inc\\ehproject\\uht\\partsbase.generated.h",
+            "c:\\ehproject\\ehproject\\ehproject\\intermediate\\build\\win64\\unrealeditor\\inc\\ehproject\\uht\\circuitsubsystem.generated.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.34.31933\\include\\queue",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.34.31933\\include\\deque",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.34.31933\\include\\unordered_set"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

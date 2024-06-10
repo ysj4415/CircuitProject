@@ -1,2 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+CircuitProject/Binaries/Win64/EHProject.pdb filter=lfs diff=lfs merge=lfs -text
+CircuitProject/Intermediate/ProjectFiles/UE5.vcxproj filter=lfs diff=lfs merge=lfs -text

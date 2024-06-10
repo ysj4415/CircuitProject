@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\ehproject\\ehproject\\ehproject\\source\\ehproject\\circuitsimulate.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\ehproject\\ehproject\\ehproject\\intermediate\\build\\win64\\x64\\ehprojecteditor\\development\\engine\\sharedpch.engine.shadowerrors.inclorderunreal5_1.h.pch",
+        "Includes": [
+            "c:\\ehproject\\ehproject\\ehproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ehproject\\definitions.ehproject.h",
+            "c:\\ehproject\\ehproject\\ehproject\\source\\ehproject\\circuitsimulate.h",
+            "c:\\ehproject\\ehproject\\ehproject\\intermediate\\build\\win64\\unrealeditor\\inc\\ehproject\\uht\\circuitsimulate.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

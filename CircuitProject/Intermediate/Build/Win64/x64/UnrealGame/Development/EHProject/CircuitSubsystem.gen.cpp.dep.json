@@ -1,0 +1,28 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\eh\\ehproject.vol1\\intermediate\\build\\win64\\unrealgame\\inc\\ehproject\\uht\\circuitsubsystem.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\eh\\ehproject.vol1\\intermediate\\build\\win64\\x64\\ehproject\\development\\engine\\sharedpch.engine.shadowerrors.cpp20.inclorderunreal5_1.h.pch",
+        "Includes": [
+            "c:\\eh\\ehproject.vol1\\intermediate\\build\\win64\\x64\\unrealgame\\development\\ehproject\\definitions.ehproject.h",
+            "c:\\eh\\ehproject.vol1\\source\\ehproject\\circuitsubsystem.h",
+            "c:\\eh\\ehproject.vol1\\source\\ehproject\\partsbase.h",
+            "c:\\eh\\ehproject.vol1\\source\\ehproject\\partstype.h",
+            "c:\\eh\\ehproject.vol1\\intermediate\\build\\win64\\unrealgame\\inc\\ehproject\\uht\\partsbase.generated.h",
+            "c:\\program files\\epic games\\ue_5.2\\engine\\source\\runtime\\engine\\classes\\kismet\\kismetsystemlibrary.h",
+            "c:\\program files\\epic games\\ue_5.2\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "c:\\program files\\epic games\\ue_5.2\\engine\\source\\runtime\\coreuobject\\public\\assetregistry\\arfilter.h",
+            "c:\\program files\\epic games\\ue_5.2\\engine\\intermediate\\build\\win64\\unrealgame\\inc\\engine\\uht\\kismetsystemlibrary.generated.h",
+            "c:\\program files\\epic games\\ue_5.2\\engine\\source\\runtime\\engine\\classes\\kismet\\gameplaystatics.h",
+            "c:\\program files\\epic games\\ue_5.2\\engine\\source\\runtime\\engine\\classes\\sound\\dialoguetypes.h",
+            "c:\\program files\\epic games\\ue_5.2\\engine\\intermediate\\build\\win64\\unrealgame\\inc\\engine\\uht\\dialoguetypes.generated.h",
+            "c:\\program files\\epic games\\ue_5.2\\engine\\source\\runtime\\engine\\classes\\kismet\\gameplaystaticstypes.h",
+            "c:\\program files\\epic games\\ue_5.2\\engine\\intermediate\\build\\win64\\unrealgame\\inc\\engine\\uht\\gameplaystaticstypes.generated.h",
+            "c:\\program files\\epic games\\ue_5.2\\engine\\intermediate\\build\\win64\\unrealgame\\inc\\engine\\uht\\gameplaystatics.generated.h",
+            "c:\\eh\\ehproject.vol1\\intermediate\\build\\win64\\unrealgame\\inc\\ehproject\\uht\\circuitsubsystem.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

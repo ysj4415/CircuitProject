@@ -1,0 +1,14 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\ysj44\\downloads\\ehproject.vol1\\ehproject\\ehproject\\source\\ehproject\\resultstruct.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\ysj44\\downloads\\ehproject.vol1\\ehproject\\ehproject\\intermediate\\build\\win64\\x64\\ehprojecteditor\\development\\engine\\sharedpch.engine.shadowerrors.cpp20.inclorderunreal5_1.h.pch",
+        "Includes": [
+            "c:\\users\\ysj44\\downloads\\ehproject.vol1\\ehproject\\ehproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ehproject\\definitions.ehproject.h",
+            "c:\\users\\ysj44\\downloads\\ehproject.vol1\\ehproject\\ehproject\\source\\ehproject\\resultstruct.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

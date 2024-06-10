@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "EHProject",
+			"Path": "C:\\eh\\EHProject.vol1\\Source\\EHProject.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "EHProjectEditor",
+			"Path": "C:\\eh\\EHProject.vol1\\Source\\EHProjectEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
