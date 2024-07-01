@@ -48,7 +48,7 @@
 /DWITH_CEF3=1
 /DWITH_LIVE_CODING=1
 /DUE_LIVE_CODING_ENGINE_DIR="C:\\Program Files\\Epic Games\\UE_5.2\\Engine"
-/DUE_LIVE_CODING_PROJECT="C:\\eh\\EHProject.vol1\\EHProject.uproject"
+/DUE_LIVE_CODING_PROJECT="C:\\CircuitProject\\CircuitProject\\EHProject.uproject"
 /DWITH_CPP_MODULES=0
 /DWITH_CPP_COROUTINES=0
 /DWITH_PROCESS_PRIORITY_CONTROL=0
@@ -74,5 +74,5 @@
 /DBUILD_ICON_FILE_NAME="\"..\\Build\\Windows\\Resources\\Default.ico\""
 /DPROJECT_COPYRIGHT_STRING="Fill out your copyright notice in the Description page of Project Settings."
 /DPROJECT_PRODUCT_IDENTIFIER=EHProject
-/fo "C:\eh\EHProject.vol1\Intermediate\Build\Win64\x64\EHProject\Development\Default.rc2.res"
+/fo "C:\CircuitProject\CircuitProject\Intermediate\Build\Win64\x64\EHProject\Development\Default.rc2.res"
 "..\Build\Windows\Resources\Default.rc2"

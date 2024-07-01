@@ -274,6 +274,7 @@ C:\eh\EHProject.vol1\Intermediate\Build\Win64\UnrealEditor\Inc\EHProject\UHT\Par
 /I Developer\AnimationDataController\Public
 /I C:\eh\EHProject.vol1\Intermediate\Build\Win64\UnrealEditor\Inc\EHProject\UHT
 /I C:\eh\EHProject.vol1\Source
+/I Developer\DesktopPlatform\Public
 /external:W0
 /external:I ThirdParty\mimalloc\include
 /external:I ThirdParty\LibTiff\Source\Win64

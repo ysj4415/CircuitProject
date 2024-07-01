@@ -16,30 +16,32 @@ struct FResultStruct;
 #endif
 #define EHPROJECT_CircuitSubsystem_generated_h
 
-#define FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_49_GENERATED_BODY \
+#define FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_50_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FResultStruct_Statics; \
 	EHPROJECT_API static class UScriptStruct* StaticStruct();
 
 
 template<> EHPROJECT_API UScriptStruct* StaticStruct<struct FResultStruct>();
 
-#define FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_SPARSE_DATA
-#define FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_RPC_WRAPPERS \
+#define FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_SPARSE_DATA
+#define FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execImportCircuitInFile); \
 	DECLARE_FUNCTION(execImportCircuit); \
 	DECLARE_FUNCTION(execUpdateCircuit); \
 	DECLARE_FUNCTION(execRunCircuit);
 
 
-#define FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execImportCircuitInFile); \
 	DECLARE_FUNCTION(execImportCircuit); \
 	DECLARE_FUNCTION(execUpdateCircuit); \
 	DECLARE_FUNCTION(execRunCircuit);
 
 
-#define FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_ACCESSORS
-#define FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_INCLASS_NO_PURE_DECLS \
+#define FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_ACCESSORS
+#define FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUCircuitSubsystem(); \
 	friend struct Z_Construct_UClass_UCircuitSubsystem_Statics; \
@@ -48,7 +50,7 @@ public: \
 	DECLARE_SERIALIZER(UCircuitSubsystem)
 
 
-#define FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_INCLASS \
+#define FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_INCLASS \
 private: \
 	static void StaticRegisterNativesUCircuitSubsystem(); \
 	friend struct Z_Construct_UClass_UCircuitSubsystem_Statics; \
@@ -57,7 +59,7 @@ public: \
 	DECLARE_SERIALIZER(UCircuitSubsystem)
 
 
-#define FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_STANDARD_CONSTRUCTORS \
+#define FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UCircuitSubsystem(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UCircuitSubsystem) \
@@ -71,7 +73,7 @@ public: \
 	NO_API virtual ~UCircuitSubsystem();
 
 
-#define FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_ENHANCED_CONSTRUCTORS \
+#define FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UCircuitSubsystem(); \
 private: \
@@ -85,27 +87,27 @@ public: \
 	NO_API virtual ~UCircuitSubsystem();
 
 
-#define FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_75_PROLOG
-#define FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_GENERATED_BODY_LEGACY \
+#define FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_76_PROLOG
+#define FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_SPARSE_DATA \
-	FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_RPC_WRAPPERS \
-	FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_ACCESSORS \
-	FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_INCLASS \
-	FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_STANDARD_CONSTRUCTORS \
+	FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_SPARSE_DATA \
+	FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_RPC_WRAPPERS \
+	FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_ACCESSORS \
+	FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_INCLASS \
+	FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_GENERATED_BODY \
+#define FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_SPARSE_DATA \
-	FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_ACCESSORS \
-	FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_INCLASS_NO_PURE_DECLS \
-	FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_78_ENHANCED_CONSTRUCTORS \
+	FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_SPARSE_DATA \
+	FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_ACCESSORS \
+	FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_INCLASS_NO_PURE_DECLS \
+	FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_79_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -113,7 +115,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> EHPROJECT_API UClass* StaticClass<class UCircuitSubsystem>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h
+#define CURRENT_FILE_ID FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

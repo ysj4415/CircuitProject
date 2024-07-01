@@ -15,7 +15,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define EHPROJECT_PartsType_generated_h
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_eh_EHProject_vol1_Source_EHProject_PartsType_h
+#define CURRENT_FILE_ID FID_CircuitProject_CircuitProject_Source_EHProject_PartsType_h
 
 
 #define FOREACH_ENUM_PARTSTYPE(op) \

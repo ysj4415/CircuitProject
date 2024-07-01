@@ -1,6 +1,0 @@
-2024/06/11-07:04:46.307 2170 Creating DB C:/eh/EHProject.vol1/Saved/webcache_4430\IndexedDB\https_www.youtube-nocookie.com_0.indexeddb.leveldb since it was missing.
-2024/06/11-07:04:46.318 2170 Reusing MANIFEST C:/eh/EHProject.vol1/Saved/webcache_4430\IndexedDB\https_www.youtube-nocookie.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/06/11-07:05:02.008 5090 Level-0 table #5: started
-2024/06/11-07:05:02.013 5090 Level-0 table #5: 1167 bytes OK
-2024/06/11-07:05:02.017 5090 Delete type=0 #3
-2024/06/11-07:05:02.018 5090 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

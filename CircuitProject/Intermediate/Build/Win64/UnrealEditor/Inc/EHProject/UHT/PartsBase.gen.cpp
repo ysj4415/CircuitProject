@@ -71,6 +71,11 @@ void EmptyLinkFunctionForGeneratedCodePartsBase() {}
 #endif
 		static void NewProp_SwitchValue_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_SwitchValue;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CanRemove_MetaData[];
+#endif
+		static void NewProp_CanRemove_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_CanRemove;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -155,6 +160,17 @@ void EmptyLinkFunctionForGeneratedCodePartsBase() {}
 		((APartsBase*)Obj)->SwitchValue = 1;
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APartsBase_Statics::NewProp_SwitchValue = { "SwitchValue", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, sizeof(bool), sizeof(APartsBase), &Z_Construct_UClass_APartsBase_Statics::NewProp_SwitchValue_SetBit, METADATA_PARAMS(Z_Construct_UClass_APartsBase_Statics::NewProp_SwitchValue_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APartsBase_Statics::NewProp_SwitchValue_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APartsBase_Statics::NewProp_CanRemove_MetaData[] = {
+		{ "Category", "Value" },
+		{ "ModuleRelativePath", "PartsBase.h" },
+	};
+#endif
+	void Z_Construct_UClass_APartsBase_Statics::NewProp_CanRemove_SetBit(void* Obj)
+	{
+		((APartsBase*)Obj)->CanRemove = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APartsBase_Statics::NewProp_CanRemove = { "CanRemove", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, sizeof(bool), sizeof(APartsBase), &Z_Construct_UClass_APartsBase_Statics::NewProp_CanRemove_SetBit, METADATA_PARAMS(Z_Construct_UClass_APartsBase_Statics::NewProp_CanRemove_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APartsBase_Statics::NewProp_CanRemove_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APartsBase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APartsBase_Statics::NewProp_UniqueID,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APartsBase_Statics::NewProp_Type_Underlying,
@@ -168,6 +184,7 @@ void EmptyLinkFunctionForGeneratedCodePartsBase() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APartsBase_Statics::NewProp_ConnectedVoltageSource,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APartsBase_Statics::NewProp_Value,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APartsBase_Statics::NewProp_SwitchValue,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APartsBase_Statics::NewProp_CanRemove,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_APartsBase_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<APartsBase>::IsAbstract,
@@ -201,15 +218,15 @@ void EmptyLinkFunctionForGeneratedCodePartsBase() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(APartsBase);
 	APartsBase::~APartsBase() {}
-	struct Z_CompiledInDeferFile_FID_eh_EHProject_vol1_Source_EHProject_PartsBase_h_Statics
+	struct Z_CompiledInDeferFile_FID_CircuitProject_CircuitProject_Source_EHProject_PartsBase_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_eh_EHProject_vol1_Source_EHProject_PartsBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_APartsBase, APartsBase::StaticClass, TEXT("APartsBase"), &Z_Registration_Info_UClass_APartsBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APartsBase), 3371430085U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CircuitProject_CircuitProject_Source_EHProject_PartsBase_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_APartsBase, APartsBase::StaticClass, TEXT("APartsBase"), &Z_Registration_Info_UClass_APartsBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APartsBase), 911897515U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_eh_EHProject_vol1_Source_EHProject_PartsBase_h_2586697021(TEXT("/Script/EHProject"),
-		Z_CompiledInDeferFile_FID_eh_EHProject_vol1_Source_EHProject_PartsBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_eh_EHProject_vol1_Source_EHProject_PartsBase_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CircuitProject_CircuitProject_Source_EHProject_PartsBase_h_1951956749(TEXT("/Script/EHProject"),
+		Z_CompiledInDeferFile_FID_CircuitProject_CircuitProject_Source_EHProject_PartsBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CircuitProject_CircuitProject_Source_EHProject_PartsBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

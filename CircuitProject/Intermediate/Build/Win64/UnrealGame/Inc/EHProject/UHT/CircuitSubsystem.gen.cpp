@@ -165,6 +165,14 @@ template<> EHPROJECT_API UScriptStruct* StaticStruct<FResultStruct>()
 		}
 		return Z_Registration_Info_UScriptStruct_ResultStruct.InnerSingleton;
 	}
+	DEFINE_FUNCTION(UCircuitSubsystem::execImportCircuitInFile)
+	{
+		P_GET_PROPERTY(FStrProperty,Z_Param_filename);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(TArray<FResultStruct>*)Z_Param__Result=P_THIS->ImportCircuitInFile(Z_Param_filename);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UCircuitSubsystem::execImportCircuit)
 	{
 		P_FINISH;
@@ -192,6 +200,7 @@ template<> EHPROJECT_API UScriptStruct* StaticStruct<FResultStruct>()
 		UClass* Class = UCircuitSubsystem::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "ImportCircuit", &UCircuitSubsystem::execImportCircuit },
+			{ "ImportCircuitInFile", &UCircuitSubsystem::execImportCircuitInFile },
 			{ "RunCircuit", &UCircuitSubsystem::execRunCircuit },
 			{ "UpdateCircuit", &UCircuitSubsystem::execUpdateCircuit },
 		};
@@ -231,6 +240,45 @@ template<> EHPROJECT_API UScriptStruct* StaticStruct<FResultStruct>()
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCircuitSubsystem_ImportCircuit_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UCircuitSubsystem_ImportCircuitInFile_Statics
+	{
+		struct CircuitSubsystem_eventImportCircuitInFile_Parms
+		{
+			FString filename;
+			TArray<FResultStruct> ReturnValue;
+		};
+		static const UECodeGen_Private::FStrPropertyParams NewProp_filename;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue_Inner;
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCircuitSubsystem_ImportCircuitInFile_Statics::NewProp_filename = { "filename", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(CircuitSubsystem_eventImportCircuitInFile_Parms, filename), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCircuitSubsystem_ImportCircuitInFile_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UScriptStruct_FResultStruct, METADATA_PARAMS(nullptr, 0) }; // 2497867810
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UCircuitSubsystem_ImportCircuitInFile_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(CircuitSubsystem_eventImportCircuitInFile_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(nullptr, 0) }; // 2497867810
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCircuitSubsystem_ImportCircuitInFile_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCircuitSubsystem_ImportCircuitInFile_Statics::NewProp_filename,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCircuitSubsystem_ImportCircuitInFile_Statics::NewProp_ReturnValue_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCircuitSubsystem_ImportCircuitInFile_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCircuitSubsystem_ImportCircuitInFile_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "CircuitSubsystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCircuitSubsystem_ImportCircuitInFile_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCircuitSubsystem, nullptr, "ImportCircuitInFile", nullptr, nullptr, sizeof(Z_Construct_UFunction_UCircuitSubsystem_ImportCircuitInFile_Statics::CircuitSubsystem_eventImportCircuitInFile_Parms), Z_Construct_UFunction_UCircuitSubsystem_ImportCircuitInFile_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCircuitSubsystem_ImportCircuitInFile_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCircuitSubsystem_ImportCircuitInFile_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCircuitSubsystem_ImportCircuitInFile_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCircuitSubsystem_ImportCircuitInFile()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCircuitSubsystem_ImportCircuitInFile_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -325,6 +373,7 @@ template<> EHPROJECT_API UScriptStruct* StaticStruct<FResultStruct>()
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCircuitSubsystem_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UCircuitSubsystem_ImportCircuit, "ImportCircuit" }, // 3626641721
+		{ &Z_Construct_UFunction_UCircuitSubsystem_ImportCircuitInFile, "ImportCircuitInFile" }, // 201542665
 		{ &Z_Construct_UFunction_UCircuitSubsystem_RunCircuit, "RunCircuit" }, // 2259135291
 		{ &Z_Construct_UFunction_UCircuitSubsystem_UpdateCircuit, "UpdateCircuit" }, // 2449317099
 	};
@@ -370,19 +419,19 @@ template<> EHPROJECT_API UScriptStruct* StaticStruct<FResultStruct>()
 	UCircuitSubsystem::UCircuitSubsystem() {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UCircuitSubsystem);
 	UCircuitSubsystem::~UCircuitSubsystem() {}
-	struct Z_CompiledInDeferFile_FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_Statics
+	struct Z_CompiledInDeferFile_FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_Statics
 	{
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_Statics::ScriptStructInfo[] = {
+	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_Statics::ScriptStructInfo[] = {
 		{ FResultStruct::StaticStruct, Z_Construct_UScriptStruct_FResultStruct_Statics::NewStructOps, TEXT("ResultStruct"), &Z_Registration_Info_UScriptStruct_ResultStruct, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FResultStruct), 2497867810U) },
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCircuitSubsystem, UCircuitSubsystem::StaticClass, TEXT("UCircuitSubsystem"), &Z_Registration_Info_UClass_UCircuitSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCircuitSubsystem), 3069621148U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UCircuitSubsystem, UCircuitSubsystem::StaticClass, TEXT("UCircuitSubsystem"), &Z_Registration_Info_UClass_UCircuitSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCircuitSubsystem), 808372398U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_842685810(TEXT("/Script/EHProject"),
-		Z_CompiledInDeferFile_FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_Statics::ClassInfo),
-		Z_CompiledInDeferFile_FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_eh_EHProject_vol1_Source_EHProject_CircuitSubsystem_h_Statics::ScriptStructInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_3492777734(TEXT("/Script/EHProject"),
+		Z_CompiledInDeferFile_FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_Statics::ClassInfo),
+		Z_CompiledInDeferFile_FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CircuitProject_CircuitProject_Source_EHProject_CircuitSubsystem_h_Statics::ScriptStructInfo),
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

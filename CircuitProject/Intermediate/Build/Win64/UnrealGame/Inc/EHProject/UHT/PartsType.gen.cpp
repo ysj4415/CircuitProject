@@ -73,15 +73,15 @@ void EmptyLinkFunctionForGeneratedCodePartsType() {}
 		}
 		return Z_Registration_Info_UEnum_PartsType.InnerSingleton;
 	}
-	struct Z_CompiledInDeferFile_FID_eh_EHProject_vol1_Source_EHProject_PartsType_h_Statics
+	struct Z_CompiledInDeferFile_FID_CircuitProject_CircuitProject_Source_EHProject_PartsType_h_Statics
 	{
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
-	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_eh_EHProject_vol1_Source_EHProject_PartsType_h_Statics::EnumInfo[] = {
+	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CircuitProject_CircuitProject_Source_EHProject_PartsType_h_Statics::EnumInfo[] = {
 		{ PartsType_StaticEnum, TEXT("PartsType"), &Z_Registration_Info_UEnum_PartsType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2564172177U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_eh_EHProject_vol1_Source_EHProject_PartsType_h_2176840324(TEXT("/Script/EHProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CircuitProject_CircuitProject_Source_EHProject_PartsType_h_2176840324(TEXT("/Script/EHProject"),
 		nullptr, 0,
 		nullptr, 0,
-		Z_CompiledInDeferFile_FID_eh_EHProject_vol1_Source_EHProject_PartsType_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_eh_EHProject_vol1_Source_EHProject_PartsType_h_Statics::EnumInfo));
+		Z_CompiledInDeferFile_FID_CircuitProject_CircuitProject_Source_EHProject_PartsType_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CircuitProject_CircuitProject_Source_EHProject_PartsType_h_Statics::EnumInfo));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

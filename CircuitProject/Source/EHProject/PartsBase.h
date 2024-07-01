@@ -48,6 +48,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Value")
 	bool SwitchValue;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Value")
+	bool CanRemove = true;
 private:
 	// Function to generate a unique ID
 	void GenerateUniqueID();

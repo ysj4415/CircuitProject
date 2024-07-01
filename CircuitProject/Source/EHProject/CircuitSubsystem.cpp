@@ -5,51 +5,8 @@
 #include <queue>
 #include <unordered_set>
 #include <map>
-#include <fstream>
 #include "DesktopPlatform/Public/IDesktopPlatform.h"
 #include "DesktopPlatform/Public/DesktopPlatformModule.h"
-
-// 바이너리 데이터를 읽어오는 함수
-template <typename T>
-static void ReadValue(const TArray<uint8>& BinaryData, int32& Offset, T* OutValues, const size_t Count = 1)
-{
-	const size_t TotalSize = sizeof(T) * Count;
-	if (BinaryData.Num() >= Offset + TotalSize)
-	{
-		FMemory::Memcpy(OutValues, BinaryData.GetData() + Offset, TotalSize);
-		Offset += TotalSize;
-	}
-	else
-	{
-		UE_LOG(LogTemp, Error, TEXT("데이터를 읽는 동안 범위를 초과했습니다."));
-	}
-}
-
-//template <typename T>
-//static void ReadValue(std::ifstream* file, T* outValues, const size_t count = 1)
-//{
-//	//ASSERT(file != nullptr and outValues != nullptr);
-//	file->read(reinterpret_cast<char*>(outValues), static_cast<std::streamsize>(sizeof(T)) * count);
-//}
-
-//template <typename T>
-//static void WriteValue(std::ofstream* file, const T& value)
-//{
-//	//ASSERT(file != nullptr);
-//	file->write(reinterpret_cast<const char*>(&value), sizeof(T));
-//}
-//
-//static char ReadString(std::ifstream* file, char* outValue)
-//{
-//	//ASSERT(file != nullptr and outValue != nullptr);
-//
-//	char valueLength = 0;
-//	file->read(&valueLength, sizeof(uint8_t));
-//	file->read(outValue, valueLength);
-//	outValue[valueLength] = '\0';
-//
-//	return valueLength;
-//}
 
 void UCircuitSubsystem::simplifyLines(std::vector<Line*>* lines, std::vector<Resistor*>* resistors, std::vector<Switch*>* switchs, VoltageSource* voltageSource) const
 {
@@ -122,7 +79,7 @@ void UCircuitSubsystem::simplifyResistors(std::vector<Resistor*>* resistors, std
 		{
 			if (resistor->ConnectedLines.size() < 2)
 			{
-				UE_LOG(LogTemp, Warning, TEXT("no line\n"));
+				// UE_LOG(LogTemp, Warning, TEXT("no line\n"));
 				removeResistor(resistor, resistors, lines);
 				bSimplified = true;
 				break;
@@ -134,7 +91,7 @@ void UCircuitSubsystem::simplifyResistors(std::vector<Resistor*>* resistors, std
 			std::vector<Resistor*> connectedResistors = line->ConnectedResistors;
 			if (connectedResistors.size() >= 2)
 			{
-				UE_LOG(LogTemp, Warning, TEXT("sum\n"));
+				// UE_LOG(LogTemp, Warning, TEXT("sum\n"));
 				mergeSeriesResistance(connectedResistors[0], connectedResistors[1], resistors, lines);
 				bSimplified = true;
 				break;
@@ -599,6 +556,12 @@ UCircuitSubsystem::NodeSet UCircuitSubsystem::createTree(const std::vector<Line*
 			Node* leftNode = nodes[sidePoint.Left];
 			Node* rightNode = nodes[sidePoint.Right];
 
+			if (leftNode == nullptr
+				or rightNode == nullptr)
+			{
+				continue;
+			}
+
 			leftNode->Neighbors.push_back(rightNode);
 			rightNode->Neighbors.push_back(leftNode);
 		}
@@ -609,6 +572,12 @@ UCircuitSubsystem::NodeSet UCircuitSubsystem::createTree(const std::vector<Line*
 			Node* leftNode = nodes[sidePoint.Left];
 			Node* rightNode = nodes[sidePoint.Right];
 
+			if (leftNode == nullptr
+				or rightNode == nullptr)
+			{
+				continue;
+			}
+
 			leftNode->Neighbors.push_back(rightNode);
 			rightNode->Neighbors.push_back(leftNode);
 		}
@@ -618,8 +587,12 @@ UCircuitSubsystem::NodeSet UCircuitSubsystem::createTree(const std::vector<Line*
 			Node* leftNode = nodes[sidePoint.Left];
 			Node* rightNode = nodes[sidePoint.Right];
 
-			leftNode->Neighbors.push_back(rightNode);
-			rightNode->Neighbors.push_back(leftNode);
+			if (leftNode != nullptr
+				and rightNode != nullptr)
+			{
+				leftNode->Neighbors.push_back(rightNode);
+				rightNode->Neighbors.push_back(leftNode);
+			}
 		}
 	}
 
@@ -716,7 +689,7 @@ void UCircuitSubsystem::MakeLine(APartsBase* Part)
 		.From = findNearestPoint(*Part->LeftPoint),
 		.To = findNearestPoint(*Part->RightPoint)
 	};
-	UE_LOG(LogTemp, Warning, TEXT("MakeLine: %p, %p, %p"), Part, Part->LeftPoint, Part->RightPoint);
+	UE_LOG(LogTemp, Log, TEXT("MakeLine: %p, %p, %p"), Part, Part->LeftPoint, Part->RightPoint);
 
 	addLine(newLine, &mLines, &mResistors, &mSwitchs, mVoltageSource);
 }
@@ -729,7 +702,7 @@ void UCircuitSubsystem::MakeResistors(APartsBase* Part)
 		.RightPoint = findNearestPoint(*Part->RightPoint),
 		.R = Part->Value
 	};
-	UE_LOG(LogTemp, Warning, TEXT("MakeResistors: %p, %p, %p, %d"), Part, Part->LeftPoint, Part->RightPoint, Part->Value);
+	UE_LOG(LogTemp, Log, TEXT("MakeResistors: %p, %p, %p, %d"), Part, Part->LeftPoint, Part->RightPoint, Part->Value);
 	addResistor(newResistor, &mResistors, &mLines);
 }
 
@@ -741,20 +714,20 @@ void UCircuitSubsystem::MakeVoltageSource(APartsBase* Part)
 		.RightPoint = findNearestPoint(*Part->RightPoint),
 		.V = Part->Value
 	};
-	UE_LOG(LogTemp, Warning, TEXT("MakeVoltageSource: %p, %p, %p, %d"), Part, Part->LeftPoint, Part->RightPoint, Part->Value);
+	UE_LOG(LogTemp, Log, TEXT("MakeVoltageSource: %p, %p, %p, %d"), Part, Part->LeftPoint, Part->RightPoint, Part->Value);
 
 	connectVoltageSourceToLines(mVoltageSource, &mLines);
 }
 
 void UCircuitSubsystem::MakeSwitch(APartsBase* Part)
 {
-	auto newVoltageSource = new Switch
+	auto newSwitch = new Switch
 	{
 		.LeftPoint = findNearestPoint(*Part->LeftPoint),
 		.RightPoint = findNearestPoint(*Part->RightPoint),
 		.On = Part->SwitchValue
 	};
-	connectVoltageSourceToLines(mVoltageSource, &mLines);
+	addSwitch(newSwitch, &mSwitchs, &mLines);
 }
 
 const AActor* UCircuitSubsystem::findNearestPoint(const AActor& p)
@@ -947,9 +920,10 @@ UCircuitSubsystem::PointOverlapElements UCircuitSubsystem::GetPointOverlapElemen
 TArray<float> UCircuitSubsystem::RunCircuit()
 {
 	{
-		if (mVoltageSource == nullptr)
+		if (mVoltageSource == nullptr
+			or mLines.empty())
 		{
-			UE_LOG(LogTemp, Warning, TEXT("전압원이 배치되어 있지 않아 실행할 수 없습니다.\n"));
+			UE_LOG(LogTemp, Warning, TEXT("잘못된 회로 구성입니다. 다시 확인해 주세요.\n"));
 		}
 		TArray<float> result;
 
@@ -1019,7 +993,6 @@ TArray<float> UCircuitSubsystem::RunCircuit()
 				simplifySwitch(&switchs, &lines);
 				simplifyLines(&lines, &resistors, &switchs, voltageSource);
 				simplifyResistors(&resistors, &lines);
-				simplifyLines(&lines, &resistors, &switchs, voltageSource);
 
 				if (lines.size() != previousLineCount
 					or resistors.size() != previousResistorCount
@@ -1033,38 +1006,36 @@ TArray<float> UCircuitSubsystem::RunCircuit()
 				}
 			}
 
-			/*simplifyLines(&lines, &resistors, &switchs, voltageSource);
-			simplifySwitch(&switchs, &lines);
-			simplifyLines(&lines, &resistors, &switchs, voltageSource);
-			simplifyResistors(&resistors, &lines);
-			simplifyLines(&lines, &resistors, &switchs, voltageSource);*/
-
-			UE_LOG(LogTemp, Warning, TEXT("l: %lld\n"), lines.size());
-			UE_LOG(LogTemp, Warning, TEXT("r: %lld\n"), resistors.size());
+			UE_LOG(LogTemp, Log, TEXT("l: %lld\n"), lines.size());
+			UE_LOG(LogTemp, Log, TEXT("r: %lld\n"), resistors.size());
 
 			Node* rootNode = nullptr;
 			auto tree = createTree(lines, resistors, switchs, voltageSource, &rootNode);
 
-			std::vector<ParallelResistance> parallelResistances = {};
-			traceTree(rootNode, resistors, *voltageSource, tree, &parallelResistances);
-
+			// 합성저항을 구합니다.
 			float equivalentResistance = 0.0f;
-			for (int level = 0; ParallelResistance r : parallelResistances)
+			if (voltageSource->ConnectedLines.size() == 2)
 			{
-				if (r.ReversedValue <= 0.0f)
-				{
-					continue;
-				}
+				std::vector<ParallelResistance> parallelResistances = {};
+				traceTree(rootNode, resistors, *voltageSource, tree, &parallelResistances);
 
-				UE_LOG(LogTemp, Warning, TEXT("R per level(%d): %d %f\n"), level++, r.ResistanceCount, 1.0f / r.ReversedValue);
-				//printf("R per level(%d): %d %f\n", level++, r.ResistanceCount, 1.0f / r.ReversedValue);
-				equivalentResistance += 1.0f / r.ReversedValue;
+				for (int level = 0; ParallelResistance r : parallelResistances)
+				{
+					if (r.ReversedValue <= 0.0f)
+					{
+						continue;
+					}
+
+					UE_LOG(LogTemp, Log, TEXT("R per level(%d): %d %f\n"), level++, r.ResistanceCount, 1.0f / r.ReversedValue);
+					//printf("R per level(%d): %d %f\n", level++, r.ResistanceCount, 1.0f / r.ReversedValue);
+					equivalentResistance += 1.0f / r.ReversedValue;
+				}
 			}
 
-			float I = voltageSource->V / equivalentResistance;
-			UE_LOG(LogTemp, Warning, TEXT("I: %fA\n"), I);
-			UE_LOG(LogTemp, Warning, TEXT("R: %fΩ\n"), equivalentResistance);
-			UE_LOG(LogTemp, Warning, TEXT("V: %fV\n"), I * equivalentResistance);
+			float I = equivalentResistance > 0.0f ? voltageSource->V / equivalentResistance : 0.0f;
+			UE_LOG(LogTemp, Log, TEXT("I: %fA\n"), I);
+			UE_LOG(LogTemp, Log, TEXT("R: %fΩ\n"), equivalentResistance);
+			UE_LOG(LogTemp, Log, TEXT("V: %fV\n"), I * equivalentResistance);
 
 			//printf("I: %fA\n", I);
 			//printf("R: %fΩ\n", equivalentResistance);
@@ -1107,6 +1078,13 @@ TArray<float> UCircuitSubsystem::RunCircuit()
 
 void UCircuitSubsystem::UpdateCircuit(TArray<APartsBase*> Parts)
 {
+	UE_LOG(LogTemp, Warning, TEXT("UpdateCircuit"));
+	UE_LOG(LogTemp, Warning, TEXT("UpdateCircuit"));
+	UE_LOG(LogTemp, Warning, TEXT("UpdateCircuit"));
+	UE_LOG(LogTemp, Warning, TEXT("UpdateCircuit"));
+	UE_LOG(LogTemp, Warning, TEXT("UpdateCircuit"));
+	UE_LOG(LogTemp, Warning, TEXT("UpdateCircuit"));
+
 	Reset();
 	mPoints.clear();
 
@@ -1168,17 +1146,19 @@ TArray<FResultStruct> UCircuitSubsystem::ImportCircuit()
 		UE_LOG(LogTemp, Warning, TEXT("Fail to Get File"));
 		return result;
 	}
-	FString CircuitFilename = SelectedFile;
-	if (!CircuitFilename.EndsWith(TEXT(".circuit")))
+
+	std::string circuitFilename = TCHAR_TO_UTF8(*SelectedFile);
+	if (circuitFilename.find(".circuit") == std::string::npos)
 	{
-		CircuitFilename += TEXT(".circuit");
+		circuitFilename += ".circuit";
 	}
 
-	TArray<uint8> FileLines;
-	if (!FFileHelper::LoadFileToArray(FileLines, *CircuitFilename))
+
+	std::ifstream circuit(circuitFilename);
+	if (not circuit.is_open())
 	{
-		// 파일을 읽을 수 없는 경우
-		UE_LOG(LogTemp, Warning, TEXT("can't read file"));
+		UE_LOG(LogTemp, Warning, TEXT("not found circuit file."));
+		//printf("파일을 찾을 수 없습니다.\n");
 		return result;
 	}
 
@@ -1186,7 +1166,7 @@ TArray<FResultStruct> UCircuitSubsystem::ImportCircuit()
 	{
 		int32 offset = 0;
 		size_t lineCount = 0;
-		ReadValue(FileLines, offset, &lineCount);
+		ReadValue(&circuit, &lineCount);
 		mLines.reserve(lineCount);
 		FResultStruct newR = {};
 
@@ -1194,12 +1174,12 @@ TArray<FResultStruct> UCircuitSubsystem::ImportCircuit()
 		{
 
 			POINT from = {};
-			ReadValue(FileLines, offset, &from.x);
-			ReadValue(FileLines, offset, &from.y);
+			ReadValue(&circuit, &from.x);
+			ReadValue(&circuit, &from.y);
 
 			POINT to = {};
-			ReadValue(FileLines, offset, &to.x);
-			ReadValue(FileLines, offset, &to.y);
+			ReadValue(&circuit, &to.x);
+			ReadValue(&circuit, &to.y);
 
 			newR.fromx = from.x;
 			newR.fromy = from.y;
@@ -1215,23 +1195,23 @@ TArray<FResultStruct> UCircuitSubsystem::ImportCircuit()
 	{
 		int32 offset = 0;
 		size_t resistorCount = 0;
-		ReadValue(FileLines, offset, &resistorCount);
+		ReadValue(&circuit, &resistorCount);
 		mLines.reserve(resistorCount);
 		FResultStruct newR = {};
 
 		for (size_t i = 0; i < resistorCount; ++i)
 		{
 			POINT cellPoint = {};
-			ReadValue(FileLines, offset, &cellPoint.x);
-			ReadValue(FileLines, offset, &cellPoint.y);
+			ReadValue(&circuit, &cellPoint.x);
+			ReadValue(&circuit, &cellPoint.y);
 
 			int r = 0;
-			ReadValue(FileLines, offset, &r);
+			ReadValue(&circuit, &r);
 
 			newR.fromx = cellPoint.x;
 			newR.fromy = cellPoint.y;
 			newR.type = PartsType::Resistor;
-
+			newR.value = r;
 
 
 			result.Push(newR);
@@ -1242,24 +1222,24 @@ TArray<FResultStruct> UCircuitSubsystem::ImportCircuit()
 	{
 		int32 offset = 0;
 		size_t switchCount = 0;
-		ReadValue(FileLines, offset, &switchCount);
+		ReadValue(&circuit, &switchCount);
 		mLines.reserve(switchCount);
 		FResultStruct newR = {};
 
 		for (size_t i = 0; i < switchCount; ++i)
 		{
 			POINT cellPoint = {};
-			ReadValue(FileLines, offset, &cellPoint.x);
-			ReadValue(FileLines, offset, &cellPoint.y);
+			ReadValue(&circuit, &cellPoint.x);
+			ReadValue(&circuit, &cellPoint.y);
 
 			bool on = false;
-			ReadValue(FileLines, offset, &on);
+			ReadValue(&circuit, &on);
 
 			newR.fromx = cellPoint.x;
 			newR.fromy = cellPoint.y;
 
 			newR.type = PartsType::Switch;
-
+			newR.switchValue = on;
 
 			result.Push(newR);
 		}
@@ -1269,23 +1249,23 @@ TArray<FResultStruct> UCircuitSubsystem::ImportCircuit()
 	{
 		int32 offset = 0;
 		bool bVoltageSourceExisted = false;
-		ReadValue(FileLines, offset, &bVoltageSourceExisted);
+		ReadValue(&circuit, &bVoltageSourceExisted);
 		FResultStruct newR = {};
 
 		if (bVoltageSourceExisted)
 		{
 			POINT cellPoint = {};
-			ReadValue(FileLines, offset, &cellPoint.x);
-			ReadValue(FileLines, offset, &cellPoint.y);
+			ReadValue(&circuit, &cellPoint.x);
+			ReadValue(&circuit, &cellPoint.y);
 
 			int v = 0;
-			ReadValue(FileLines, offset, &v);
+			ReadValue(&circuit, &v);
 
 			newR.fromx = cellPoint.x;
 			newR.fromy = cellPoint.y;
 
 			newR.type = PartsType::VoltageSource;
-
+			newR.value = v;
 
 			result.Push(newR);
 		}
@@ -1294,6 +1274,142 @@ TArray<FResultStruct> UCircuitSubsystem::ImportCircuit()
 	return result;
 }
 
+TArray<FResultStruct> UCircuitSubsystem::ImportCircuitInFile(FString filename)
+{
+	TArray<FResultStruct> result;
+
+	FString SaveDir = FPaths::ProjectContentDir();
+	SaveDir = FPaths::Combine(SaveDir, TEXT("Problem/"));
+	FString FilePath = FPaths::Combine(SaveDir, filename);
+	std::string circuitFilename = TCHAR_TO_UTF8(*FilePath);
+	//std::string circuitFilename = "1_1.circuit";
+
+	if (circuitFilename.find(".circuit") == std::string::npos)
+	{
+		circuitFilename += ".circuit";
+	}
+
+
+	std::ifstream circuit(circuitFilename);
+	if (not circuit.is_open())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("not found circuit file."));
+		//printf("파일을 찾을 수 없습니다.\n");
+		return result;
+	}
+
+	// 라인을 불러 옵니다.
+	{
+		int32 offset = 0;
+		size_t lineCount = 0;
+		ReadValue(&circuit, &lineCount);
+		mLines.reserve(lineCount);
+		FResultStruct newR = {};
+
+		for (size_t i = 0; i < lineCount; ++i)
+		{
+
+			POINT from = {};
+			ReadValue(&circuit, &from.x);
+			ReadValue(&circuit, &from.y);
+
+			POINT to = {};
+			ReadValue(&circuit, &to.x);
+			ReadValue(&circuit, &to.y);
+
+			newR.fromx = from.x;
+			newR.fromy = from.y;
+
+			newR.tox = to.x;
+			newR.toy = to.y;
+			newR.type = PartsType::Line;
+			result.Push(newR);
+		}
+	}
+
+	// 저항을 불러 옵니다.
+	{
+		int32 offset = 0;
+		size_t resistorCount = 0;
+		ReadValue(&circuit, &resistorCount);
+		mLines.reserve(resistorCount);
+		FResultStruct newR = {};
+
+		for (size_t i = 0; i < resistorCount; ++i)
+		{
+			POINT cellPoint = {};
+			ReadValue(&circuit, &cellPoint.x);
+			ReadValue(&circuit, &cellPoint.y);
+
+			int r = 0;
+			ReadValue(&circuit, &r);
+
+			newR.fromx = cellPoint.x;
+			newR.fromy = cellPoint.y;
+			newR.type = PartsType::Resistor;
+			newR.value = r;
+
+
+			result.Push(newR);
+		}
+	}
+	 
+	// 스위치를 불러 옵니다.
+	{
+		int32 offset = 0;
+		size_t switchCount = 0;
+		ReadValue(&circuit, &switchCount);
+		mLines.reserve(switchCount);
+		FResultStruct newR = {};
+
+		for (size_t i = 0; i < switchCount; ++i)
+		{
+			POINT cellPoint = {};
+			ReadValue(&circuit, &cellPoint.x);
+			ReadValue(&circuit, &cellPoint.y);
+
+			bool on = false;
+			ReadValue(&circuit, &on);
+
+			newR.fromx = cellPoint.x;
+			newR.fromy = cellPoint.y;
+
+			newR.type = PartsType::Switch;
+			newR.switchValue = on;
+
+			result.Push(newR);
+		}
+	}
+
+	// 전압원을 불러 옵니다.
+	{
+		int32 offset = 0;
+		bool bVoltageSourceExisted = false;
+		ReadValue(&circuit, &bVoltageSourceExisted);
+		FResultStruct newR = {};
+
+		if (bVoltageSourceExisted)
+		{
+			POINT cellPoint = {};
+			ReadValue(&circuit, &cellPoint.x);
+			ReadValue(&circuit, &cellPoint.y);
+
+			int v = 0;
+			ReadValue(&circuit, &v);
+
+			newR.fromx = cellPoint.x;
+			newR.fromy = cellPoint.y;
+
+			newR.type = PartsType::VoltageSource;
+			newR.value = v;
+
+
+			result.Push(newR);
+		}
+	}
+
+	return result;
+}
 
 FResultStruct::FResultStruct()
 {

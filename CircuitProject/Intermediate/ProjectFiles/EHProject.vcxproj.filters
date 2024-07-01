@@ -41,12 +41,6 @@
     <Filter Include="Source\EHProject">
       <UniqueIdentifier>{C1BF8E12-4F6D-3B55-AB87-CE7FF2C1F5A5}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\EHProject\CirciutBlueprintFunctionLibrary.cpp">
-      <Filter>Source\EHProject</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\EHProject\CirciutBlueprintFunctionLibrary.h">
-      <Filter>Source\EHProject</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\EHProject\CircuitSubsystem.cpp">
       <Filter>Source\EHProject</Filter>
     </ClCompile>

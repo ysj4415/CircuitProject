@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"C:\\eh\\EHProject.vol1\\Source\\EHProject\\EHProject.Build.cs",
-		"C:\\eh\\EHProject.vol1\\Source\\EHProject.Target.cs",
-		"C:\\eh\\EHProject.vol1\\Source\\EHProjectEditor.Target.cs"
+		"C:\\CircuitProject\\CircuitProject\\Source\\EHProject\\EHProject.Build.cs",
+		"C:\\CircuitProject\\CircuitProject\\Source\\EHProject.Target.cs",
+		"C:\\CircuitProject\\CircuitProject\\Source\\EHProjectEditor.Target.cs"
 	],
 	"EngineVersion": "5.2.1"
 }

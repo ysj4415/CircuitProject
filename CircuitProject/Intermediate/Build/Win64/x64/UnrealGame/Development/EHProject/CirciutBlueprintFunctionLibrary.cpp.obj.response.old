@@ -107,6 +107,7 @@ C:\eh\EHProject.vol1\Source\EHProject\CirciutBlueprintFunctionLibrary.cpp
 /I Runtime\TypedElementRuntime\Public
 /I C:\eh\EHProject.vol1\Intermediate\Build\Win64\UnrealGame\Inc\EHProject\UHT
 /I C:\eh\EHProject.vol1\Source
+/I Developer\DesktopPlatform\Public
 /external:W0
 /external:I ThirdParty\mimalloc\include
 /external:I ThirdParty\LibTiff\Source\Win64

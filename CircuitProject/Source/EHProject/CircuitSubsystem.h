@@ -9,6 +9,7 @@
 #include <unordered_map>
 #include "Kismet/KismetSystemLibrary.h"
 #include "Kismet/GameplayStatics.h"
+#include <fstream>
 #include "CircuitSubsystem.generated.h"
 
 
@@ -241,6 +242,13 @@ private:
 
 	FString OpenFileDialog();
 
+	template <typename T>
+	void ReadValue(std::ifstream* file, T* outValues, const size_t count = 1)
+	{
+		ASSERT(file != nullptr and outValues != nullptr);
+		file->read(reinterpret_cast<char*>(outValues), static_cast<std::streamsize>(sizeof(T)) * count);
+	}
+
 public:
 	UFUNCTION(BlueprintCallable)
 	TArray<float> RunCircuit();
@@ -255,5 +263,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	TArray<FResultStruct> ImportCircuit();
 
+	UFUNCTION(BlueprintCallable)
+	TArray<FResultStruct> ImportCircuitInFile(FString filename);
 };
 
